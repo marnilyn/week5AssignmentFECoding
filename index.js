@@ -87,7 +87,7 @@ class Attendee {
     groupString += i+ ') ' + this.group[i].name + '\n';
     }
     alert(groupString);
-    }//this will display all the etnered groups
+    }//this will display all the entered groups
     
     createGroup() {
     let name = prompt('Enter your Company Name: ');
@@ -127,12 +127,12 @@ class Attendee {
     let age = prompt(`Enter the age for the attendee: `);
     let food = prompt('Enter any food allergies for this attendee: ');
     this.selectedGroup.addAttendee(new Attendee(name,age,food));
-    }
+    }//this will prompt to fill in values for name, age, and food allergy
     
     deleteAttendee() {
     let index = prompt('Enter the index of the attendee that you wish to delete: ');
     if (index > -1 && index < this.selectedGroup.attendees.length) {this.selectedGroup.attendees.splice(index,1);
-    }
+    }//this will delete the attendee from the array based on the index number entered
     }
     }
     let menu = new Menu();
