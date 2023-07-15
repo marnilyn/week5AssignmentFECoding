@@ -4,11 +4,11 @@ class Attendee {
     this.name = name;
     this.age = age;
     this.food = food
-    }
+    }//Attendee added will require information for name, age, food allergy
     
     describe() {
      return `Name: ${this.name}, Age: ${this.age}, Food Allergies: ${this.food}`;
-    }
+    }// This is how the attendee information will be listed
     }
     class Group {
     constructor(name) {
@@ -26,7 +26,7 @@ class Attendee {
     
     describe() {
     return `${this.name} has ${this.attendees.length} attendees.`;
-    }
+    }//this is to display the number of attendees entered
     }
     class Menu { 
     constructor() {
@@ -56,19 +56,19 @@ class Attendee {
     selection = this.showMainMenuOptions();
     }
     alert('Thank you for your visiting our page!');
-    }
+    }// This is the Main Menu Prompt that redirects to different options based on selection
     
     
     showMainMenuOptions() {
     return prompt(`
-    Welcome to the American Red Cross Fundraising! 
+    Welcome to the American Red Cross Dinner & Fundraising! 
     Select from the options below:
     0) Exit form
     1) Register a table for your Organization
     2) Modify your Organization's attendee list
-    3) Cancel your registration/ delete an attendee
+    3) Cancel your Company's Registration/ table
     4) Display all of the registered Organization
-    `);
+    `);//this shows the Main Menu prompt
     }
     
     showGroupMenuOptions(groupInfo) {
@@ -78,7 +78,7 @@ class Attendee {
     2) Delete an attendee from your registered group
     -----------------
     ${groupInfo}
-    `);
+    `);//this shows the prompt for attendees
     }
     
     displayGroups() {
@@ -87,12 +87,12 @@ class Attendee {
     groupString += i+ ') ' + this.group[i].name + '\n';
     }
     alert(groupString);
-    }
+    }//this will display all the etnered groups
     
     createGroup() {
     let name = prompt('Enter your Company Name: ');
     this.group.push(new Group(name));
-    }
+    }// this will add the entry to the array
     
     viewGroup() {
     let index = prompt("Enter the index of the Company/ Organization that you want to view:");
@@ -110,15 +110,15 @@ class Attendee {
     break;
     case '2' :
     this.deleteAttendee();
-    }
+    }//this will execute the selected option of either creating or deleting an entry for attendee
     }
     }
     
     deleteGroup() {
-    let index = prompt('Enter the index of the Company/ Organization that you wish to delete: ');
+    let index = prompt('Enter the index of the Company/ Organization that you wish to cancel: ');
     if (index > -1 && index < this.group.length) {
     this.group.splice(index,1);
-    }
+    }//this will delete a group entry from the array
     }
     
     
