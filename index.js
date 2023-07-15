@@ -1,13 +1,13 @@
 
 class Attendee {
-    constructor(name, age, size) {
+    constructor(name, age, food) {
     this.name = name;
     this.age = age;
-    this.size = size
+    this.food = food
     }
     
     describe() {
-     return `${this.name} is ${this.age} years old and size ${this.size}`;
+     return `Name: ${this.name}, Age: ${this.age}, Food Allergies: ${this.food}`;
     }
     }
     class Group {
@@ -61,19 +61,21 @@ class Attendee {
     
     showMainMenuOptions() {
     return prompt(`
+    Welcome to the American Red Cross Fundraising! 
+    Select from the options below:
     0) Exit form
-    1) Register a spot for your family
-    2) Add an attendee to group registration
+    1) Register a table for your Organization
+    2) Modify your Organization's attendee list
     3) Cancel your registration/ delete an attendee
-    4) Display all of the registered groups/families attending
+    4) Display all of the registered Organization
     `);
     }
     
     showGroupMenuOptions(groupInfo) {
     return prompt(`
-    0) back
-    1) add a new attendee to your registered group
-    2) delete an attendee from your registered group
+    0) Go back to Main Menu
+    1) Add a new attendee to your registered group
+    2) Delete an attendee from your registered group
     -----------------
     ${groupInfo}
     `);
@@ -88,12 +90,12 @@ class Attendee {
     }
     
     createGroup() {
-    let name = prompt('Enter name for your group/family (for example: Jones Family): ');
+    let name = prompt('Enter your Company Name: ');
     this.group.push(new Group(name));
     }
     
     viewGroup() {
-    let index = prompt("Enter the index of the group that you want to view:");
+    let index = prompt("Enter the index of the Company/ Organization that you want to view:");
     if (index > -1 && index < this.group.length) {
     this.selectedGroup = this.group[index];
     let description = 'Group Name: ' + this.selectedGroup.name + '\n';
@@ -112,8 +114,8 @@ class Attendee {
     }
     }
     
-    deleteTeam() {
-    let index = prompt('Enter the index of the group that you wish to delete: ');
+    deleteGroup() {
+    let index = prompt('Enter the index of the Company/ Organization that you wish to delete: ');
     if (index > -1 && index < this.group.length) {
     this.group.splice(index,1);
     }
@@ -121,15 +123,15 @@ class Attendee {
     
     
     createAttendee() {
-    let name = prompt('Enter the FIRST name for family member: ');
-    let age = prompt('Enter the age of the family member (use a number): ');
-    let size = prompt('Enter the shirt size of the attendee (for example- adult medium, youth XL):');
-    this.selectedGroup.addAttendee(new Attendee(name,age,size));
+    let name = prompt(`Enter the FIRST name of your Company's attendee: '`);
+    let age = prompt(`Enter the age for the attendee: `);
+    let food = prompt('Enter any food allergies for this attendee: ');
+    this.selectedGroup.addAttendee(new Attendee(name,age,food));
     }
     
     deleteAttendee() {
     let index = prompt('Enter the index of the attendee that you wish to delete: ');
-    if (index > -1 && index < this.selectedGroup.attendees.length) { this.selectedGroup.attendees.splice(index,1);
+    if (index > -1 && index < this.selectedGroup.attendees.length) {this.selectedGroup.attendees.splice(index,1);
     }
     }
     }
